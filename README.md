@@ -57,6 +57,7 @@ $ curl -X POST -d '{
 
 _rating_: The overall user rating of the place. <br>
 _user_ratings_total_: The total number of reviews for the place. <br>
-_photos_: An array of photo objects, each with a reference to an image.    <br> <br>
+_photos_: An array of photo objects, each with a reference to an image.    <br>
+.... <br> 
 
 *Juices....* 
