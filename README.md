@@ -2,13 +2,30 @@
 _Querying Google Places API_
 
 ```bash
+#!/bin/bash
 
-$ curl -X POST -d '{
-                             "textQuery" : "sapatos goiania, goias."
-                           }' \
-                               -H 'Content-Type: application/json' -H 'X-Goog-Api-Key: your-api-key-here' \
-                               -H 'X-Goog-FieldMask: places.displayName,places.formattedAddress,places.location,places.priceLevel' \
-                               'https://places.googleapis.com/v1/places:searchText'
+
+# Your API Key here
+API_KEY="YOUR API KEY"
+
+QUERY="sapatos goiania, goias."
+GOOG_FIELD_MASK="places.displayName,places.formattedAddress,places.location,places.priceLevel"
+TEXT_QUERY="{\"textQuery\": \"$QUERY\"}"
+
+
+curl -X POST \
+	  -H "Content-Type: application/json" \
+	  -H "X-Goog-Api-Key: $API_KEY" \
+	  -H "X-Goog-FieldMask: $GOOG_FIELD_MASK" \
+	  --data-raw "$TEXT_QUERY" \
+	  "https://places.googleapis.com/v1/places:searchText"
+	  
+	  
+```
+
+E BooMMmm! Regular!!  (muito brancaaaaaaaaaaaaaa) 
+
+```bash
 
 {
   "places": [
@@ -48,11 +65,7 @@ $ curl -X POST -d '{
 
     ...
 
-
-
-
 ```
-
 ## Outros valores para o X-Goog-FieldMask 
 
 _rating_: The overall user rating of the place. <br>
